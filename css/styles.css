@@ -1,0 +1,37 @@
+*::before,
+*::after,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color-black: #334043;
+    --complement: #DBE2E9;
+    --primary-color: #865549;
+    --background: #7FA3B2;
+    --primary-light-1: #9A7A61;
+    --primary-light-2: #BA958D;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    background-image: linear-gradient(to right, rgba(127, 163, 178, 1), rgba(127, 163, 178, .6))
+}
+
+.main-container {
+    width: 55%;
+    background-color: var(--complement);
+    margin-left: 26.5%;
+    margin-top: 10rem;
+    border: 1px solid var(--complement);
+    border-radius: 1rem;
+    min-height: 70vh;
+    box-shadow: 5px 5px 30px var(--main-color-black), -5px -5px 30px var(--complement);
+}

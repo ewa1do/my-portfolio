@@ -32,6 +32,122 @@ body {
     margin-top: 10rem;
     border: 1px solid var(--complement);
     border-radius: 1rem;
-    min-height: 70vh;
+    /* min-height: 70vh; */
+    max-height: 70vh;
     box-shadow: 5px 5px 30px var(--main-color-black), -5px -5px 30px var(--complement);
+}
+
+.menu {
+    display: flex;
+    justify-content: end;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.menu li {
+    padding: 0 1rem;
+}
+
+.menu li a:link,
+.menu li a:visited {
+    color: var(--main-color-black);
+    text-decoration: none;
+    font-weight: 500;
+    padding-bottom: .2rem;
+    transition: all .3s ease-in; 
+}
+
+.menu li a:hover,
+.menu li a:active {
+    border-bottom: 1px solid var(--main-color-black);    
+}
+
+.personal-info {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.personal-info img {
+    justify-self: center;
+    align-self: center;
+    border-radius: 50%;
+    width: 10rem;
+}
+
+.title {
+    justify-self: center;
+}
+
+.title h1 {
+    margin: .5rem 0;
+    font-size: 3.5rem;
+    font-weight: 300;
+    border-bottom: 1px solid var(--main-color-black);
+}
+
+.title h3 {
+    font-size: 1.7rem;
+    font-weight: 300;
+}
+
+.desc {
+    justify-self: center;
+    width: 70%;
+}
+
+/* classes used in js */
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.skills-title {
+    font-size: 4rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.skills-title::after {
+    position: absolute;
+    content: '';
+    bottom: 11px;
+    height: 2px;
+    margin: 0 auto;
+	left: 0;
+    right: 0;
+	width: 35%;
+	background: rgba(0,0,0,.4);
+}
+
+.skill {
+    padding: .5rem;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    padding: .8rem;
+    font-size: 1.8rem;
+    border: 1px solid rgba(0,0,0,.4);
+    margin-bottom: 1rem;
+}
+
+.skill-html {
+    background: linear-gradient(to right, red, orangered);
+}
+
+.skill-css {
+    background: linear-gradient(to right, blue, lightblue);
+}
+
+.skill-js {
+    background: linear-gradient(to right, yellow, lightyellow);
+}
+
+.skill-git {
+    background: linear-gradient(to right, orange, coral);
 }

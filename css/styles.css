@@ -39,7 +39,7 @@ body {
 
 .menu {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     list-style: none;
     margin-top: 1rem;
 }
@@ -97,7 +97,7 @@ body {
     width: 70%;
 }
 
-/* classes used in js */
+/* skills section */
 
 .skills {
     display: flex;
@@ -150,4 +150,25 @@ body {
 
 .skill-git {
     background: linear-gradient(to right, orange, coral);
+}
+
+/* projects section */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* justify-items: center; */
+    width: 50%;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.project {
+    border: 1px solid var(--main-color-black);
+    padding: 2rem;
+    /* filter: brightness(.5); */
+}
+
+.project img {
+    width: 100%;
 }

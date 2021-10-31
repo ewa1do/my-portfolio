@@ -1,8 +1,36 @@
 'use strict';
 
+const projectsDB = [
+    {
+        img: 'img/project.png',
+        name: 'Project 1',
+        link: '#',
+    },
+    {
+        img: 'img/project.png',
+        name: 'Project 2',
+        link: '#',
+    },
+    {
+        img: 'img/project.png',
+        name: 'Project 3',
+        link: '#',
+    },
+    {
+        img: 'img/project.png',
+        name: 'Project 4',
+        link: '#',
+    },
+]
+
 const mainContainer = document.querySelector('.main-container');
 const infoContainer = document.querySelector('.personal-info');
-const skills = document.querySelector('.skills');
+const menuContainer = document.querySelector('.menu');
+
+const skillsView = document.querySelector('.skills');
+const projectsView = document.querySelector('.projects');
+const aboutView = document.querySelector('.about');
+const contactView = document.querySelector('.contact');
 
 
 class UI {
@@ -41,11 +69,48 @@ class UI {
 
         infoContainer.appendChild(skillsDiv);
     }
+
+    static displayProjectsView () {
+        this.clearView();
+        
+        const projectsDiv = document.createElement('div');
+        projectsDiv.classList.add('projects');
+
+        const project1 = document.createElement('div');
+        const project2 = document.createElement('div');
+        const project3 = document.createElement('div');
+        const project4 = document.createElement('div');
+
+        projectsDiv.appendChild(project1);
+        projectsDiv.appendChild(project2);
+        projectsDiv.appendChild(project3);
+        projectsDiv.appendChild(project4);
+
+        Array.from(projectsDiv.children).forEach((div, i) => {
+            const output = 
+            `
+                <img src='${projectsDB[i].img}'>
+                <h3><a href="${projectsDB[i].link}">${projectsDB[i].name}</a></h3>
+            `;
+
+            div.classList.add('project');
+            div.insertAdjacentHTML('beforeend', output);
+        });
+
+
+        infoContainer.appendChild(projectsDiv);
+    }
 }
 
 
-
-skills.addEventListener('click', function (e) {
+menuContainer.addEventListener('click', function (e) {
     e.preventDefault();
-    UI.displaySkillsView();
-})
+    console.log(e.target.className);
+
+    if (e.target.className === 'skills') {
+        UI.displaySkillsView();
+    } else if (e.target.className === 'projects') {
+        UI.displayProjectsView();
+    }
+
+});

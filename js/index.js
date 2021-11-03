@@ -42,30 +42,24 @@ class UI {
         this.clearView();
 
         const skillsDiv = document.createElement('div');
+        const skillNames = ['html', 'css', 'javascript', 'git'];
+        const skillsArr = [];
+        
         const title = document.createElement('h2');
-        const html = document.createElement('p');
-        const css = document.createElement('p');
-        const js = document.createElement('p');
-        const git = document.createElement('p');
-
         title.textContent = 'My Skills';
-        html.textContent = 'html';
-        css.textContent = 'css';
-        js.textContent = 'javascript'
-        git.textContent = 'git'
-
-        skillsDiv.classList.add('skills');
         title.classList.add('skills-title');
-        html.classList.add('skill', 'skill-html');
-        css.classList.add('skill', 'skill-css');
-        js.classList.add('skill', 'skill-js');
-        git.classList.add('skill', 'skill-git');
-
         skillsDiv.appendChild(title);
-        skillsDiv.appendChild(html);
-        skillsDiv.appendChild(css);
-        skillsDiv.appendChild(js);
-        skillsDiv.appendChild(git);
+        
+        for (let i = 0; i < skillNames.length; i++) 
+            skillsArr.push(document.createElement('p'));
+        
+        skillsDiv.classList.add('skills');
+
+        skillsArr.map((p, i) => {
+            p.textContent = skillNames[i];
+            p.classList.add('skill', `skill-${p.textContent}`);
+            skillsDiv.appendChild(p);
+        });
 
         infoContainer.appendChild(skillsDiv);
     }
@@ -74,17 +68,13 @@ class UI {
         this.clearView();
         
         const projectsDiv = document.createElement('div');
+        const projectArr = [];
+
         projectsDiv.classList.add('projects');
 
-        const project1 = document.createElement('div');
-        const project2 = document.createElement('div');
-        const project3 = document.createElement('div');
-        const project4 = document.createElement('div');
+        for (let i = 0; i < 4; i++) projectArr.push(document.createElement('div'));
 
-        projectsDiv.appendChild(project1);
-        projectsDiv.appendChild(project2);
-        projectsDiv.appendChild(project3);
-        projectsDiv.appendChild(project4);
+        projectArr.map(div => projectsDiv.appendChild(div));
 
         Array.from(projectsDiv.children).forEach((div, i) => {
             const output = 
@@ -97,20 +87,26 @@ class UI {
             div.insertAdjacentHTML('beforeend', output);
         });
 
-
         infoContainer.appendChild(projectsDiv);
+    }
+
+    static displayContactView () {
+        this.clearView();
+
+        console.log('contact');
+        
     }
 }
 
 
 menuContainer.addEventListener('click', function (e) {
     e.preventDefault();
-    console.log(e.target.className);
 
     if (e.target.className === 'skills') {
         UI.displaySkillsView();
     } else if (e.target.className === 'projects') {
         UI.displayProjectsView();
+    } else if (e.target.className === 'contact') {
+        UI.displayContactView();
     }
-
 });

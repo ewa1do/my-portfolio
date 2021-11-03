@@ -144,7 +144,7 @@ body {
     background: linear-gradient(to right, blue, lightblue);
 }
 
-.skill-js {
+.skill-javascript {
     background: linear-gradient(to right, yellow, lightyellow);
 }
 
@@ -155,12 +155,14 @@ body {
 /* projects section */
 
 .projects {
+    grid-column: 2 / -1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     /* justify-items: center; */
     width: 50%;
     margin: 0 auto;
     gap: 2rem;
+    position: relative;
 }
 
 .project {
@@ -170,5 +172,11 @@ body {
 }
 
 .project img {
-    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 1;
+}
+
+.project h3 {
+    z-index: 10;
 }

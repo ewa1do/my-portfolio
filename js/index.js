@@ -21,21 +21,80 @@ const projectsDB = [
         name: 'Project 4',
         link: '#',
     },
-]
+];
+
+const contactDB = [
+    {
+        name: 'LinkedIn',
+        icon: 'logo-linkedin',
+        link: '#',
+    },
+    {
+        name: 'Instagram',
+        icon: 'logo-instagram',
+        link: '#',
+    },
+    {
+        name: 'Twitter',
+        icon: 'logo-twitter',
+        link: '#',
+    },
+    {
+        name: 'Github',
+        icon: 'logo-github',
+        link: '#',
+    },
+];
+
+const menuDB = [
+    {
+        href: '#',
+        class: 'about',
+        name: 'About me',
+    },
+    {
+        href: '#',
+        class: 'projects',
+        name: 'Projects',
+    },
+    {
+        href: '#',
+        class: 'skills',
+        name: 'Skills',
+    },
+    {
+        href: '#',
+        class: 'contact',
+        name: 'Contact',
+    }
+];
 
 const mainContainer = document.querySelector('.main-container');
 const infoContainer = document.querySelector('.personal-info');
-const menuContainer = document.querySelector('.menu');
-
-const skillsView = document.querySelector('.skills');
-const projectsView = document.querySelector('.projects');
-const aboutView = document.querySelector('.about');
-const contactView = document.querySelector('.contact');
-
 
 class UI {
     static clearView () {
         [...infoContainer.children].forEach(el => el.remove());
+    }
+
+    static displayMenuBar () {
+        const menuContainer = document.createElement('nav');
+        menuContainer.classList.add('nav');
+        const menu = document.createElement('ul');
+
+        menu.classList.add('menu');
+
+        for (let i = 0; i < menuDB.length; i++) {
+            const output = `
+                <li><a href="${menuDB[i].href}" class="${menuDB[i].class}">${menuDB[i].name}</a></li>
+            `;
+
+            menu.insertAdjacentHTML('beforeend', output);
+        }
+
+        menuContainer.appendChild(menu);
+
+        mainContainer.prepend(menuContainer);
     }
 
     static displaySkillsView () {
@@ -50,7 +109,7 @@ class UI {
         title.classList.add('skills-title');
         skillsDiv.appendChild(title);
         
-        for (let i = 0; i < skillNames.length; i++) 
+        for (let p of skillNames) 
             skillsArr.push(document.createElement('p'));
         
         skillsDiv.classList.add('skills');
@@ -72,7 +131,8 @@ class UI {
 
         projectsDiv.classList.add('projects');
 
-        for (let i = 0; i < 4; i++) projectArr.push(document.createElement('div'));
+        for (let i = 0; i < 4; i++) 
+            projectArr.push(document.createElement('div'));
 
         projectArr.map(div => projectsDiv.appendChild(div));
 
@@ -93,13 +153,83 @@ class UI {
     static displayContactView () {
         this.clearView();
 
-        console.log('contact');
-        
+        const contactContainer = document.createElement('div');
+        const contactArr = [];
+
+        contactContainer.classList.add('contacts');
+
+        for (let i = 0; i < 4; i++) {
+            contactArr.push(document.createElement('div'));
+        }
+
+        contactArr.map(div => contactContainer.appendChild(div));
+
+        [...contactContainer.children].forEach((div, i) => {
+            const output = 
+            `
+            <i><ion-icon name=${contactDB[i].icon}></ion-icon></i>
+            <h4><a href=${contactDB[i].link}>${contactDB[i].name}</a></h4>
+            `;
+
+            div.classList.add('cont', `cont-${contactDB[i].name.toLowerCase()}`);
+            div.insertAdjacentHTML('beforeend', output);
+        });
+
+        const output = `
+            <ul class="contact-info">
+                <li><i><ion-icon name="mail-outline"></ion-icon></i>this.eduardovera@gmail.com</li>
+                <li><i><ion-icon name="call-outline"></ion-icon></i>+58 424 691 3238</li>
+                <li><i><ion-icon name="location-outline"></ion-icon></i>Maracaibo Venezuela</li>
+            </ul>
+        `;
+
+        infoContainer.appendChild(contactContainer);
+        infoContainer.insertAdjacentHTML('beforeend', output);
+    }
+
+    static displayAboutView () {
+        console.log('about');
+        this.clearView();
+
+        const aboutContainer = document.createElement('div');
+        aboutContainer.classList.add('about-div');
+
+        const profile = document.createElement('img');
+        profile.setAttribute('src', 'img/user.png');
+
+        const titleDiv = document.createElement('div');
+        titleDiv.classList.add('title-div');
+
+        const title = document.createElement('h1');
+        const subTitle = document.createElement('h3');
+
+        title.textContent = 'Eduardo Vera';
+        subTitle.textContent = 'Front-End Developer';
+
+        titleDiv.appendChild(title);
+        titleDiv.appendChild(subTitle);
+
+        const descDiv = document.createElement('div');
+        descDiv.classList.add('desc-div');
+
+        const descP = document.createElement('p');
+        descP.textContent = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi voluptatibus natus quaerat temporibus numquam totam dolorum explicabo blanditiis doloribus? Sunt eum iste deleniti quasi corrupti inventore aut, adipisci vero repellendus.';
+    
+        descDiv.appendChild(descP);
+
+        aboutContainer.appendChild(profile);
+        aboutContainer.appendChild(titleDiv);
+        aboutContainer.appendChild(descDiv);
+
+        infoContainer.appendChild(aboutContainer);
     }
 }
 
 
-menuContainer.addEventListener('click', function (e) {
+document.addEventListener('DOMContentLoaded', UI.displayMenuBar());
+document.addEventListener('DOMContentLoaded', UI.displayAboutView());
+
+document.querySelector('.menu').addEventListener('click', function (e) {
     e.preventDefault();
 
     if (e.target.className === 'skills') {
@@ -108,5 +238,7 @@ menuContainer.addEventListener('click', function (e) {
         UI.displayProjectsView();
     } else if (e.target.className === 'contact') {
         UI.displayContactView();
+    } else if (e.target.className === 'about') {
+        UI.displayAboutView();
     }
 });

@@ -55,17 +55,17 @@ const menuDB = [
     {
         href: '#',
         class: 'projects',
-        name: 'Projects',
+        name: 'My Projects',
     },
     {
         href: '#',
         class: 'skills',
-        name: 'Skills',
+        name: 'My Skills',
     },
     {
         href: '#',
         class: 'contact',
-        name: 'Contact',
+        name: 'Contact Me',
     }
 ];
 
@@ -226,19 +226,79 @@ class UI {
 }
 
 
-document.addEventListener('DOMContentLoaded', UI.displayMenuBar());
-document.addEventListener('DOMContentLoaded', UI.displayAboutView());
+// document.addEventListener('DOMContentLoaded', UI.displayMenuBar());
+// document.addEventListener('DOMContentLoaded', UI.displayAboutView());
 
-document.querySelector('.menu').addEventListener('click', function (e) {
-    e.preventDefault();
+// document.querySelector('.menu').addEventListener('click', function (e) {
+//     e.preventDefault();
 
-    if (e.target.className === 'skills') {
-        UI.displaySkillsView();
-    } else if (e.target.className === 'projects') {
-        UI.displayProjectsView();
-    } else if (e.target.className === 'contact') {
-        UI.displayContactView();
-    } else if (e.target.className === 'about') {
-        UI.displayAboutView();
+//     if (e.target.className === 'skills') {
+//         UI.displaySkillsView();
+//     } else if (e.target.className === 'projects') {
+//         UI.displayProjectsView();
+//     } else if (e.target.className === 'contact') {
+//         UI.displayContactView();
+//     } else if (e.target.className === 'about') {
+//         UI.displayAboutView();
+//     }
+// });
+
+
+class UI_2 {
+    static displayNavBar () {
+        const navbar = document.createElement('nav');
+        const menu = document.createElement('ul');
+
+        navbar.classList.add('nav');
+        menu.classList.add('menu');
+
+        for (let i = 0; i <  menuDB.length; i++) {
+            const output = `<li><a href='${menuDB[i].href}' class='${menuDB[i].class}'>${menuDB[i].name}</a></li>`;
+
+            menu.insertAdjacentHTML('beforeend', output);
+        }
+
+        navbar.appendChild(menu);
+        mainContainer.appendChild(navbar);
     }
-});
+
+    static displayAboutMe () {
+        const aboutDiv = document.createElement('div');
+        const profileDiv = document.createElement('div');
+        const profileImg = document.createElement('img');
+        const titleDiv = document.createElement('div');
+        const name = document.createElement('h1');
+        const title = document.createElement('h3');
+        const descDiv = document.createElement('div');
+        const paragraph = document.createElement('p');
+    
+        aboutDiv.classList.add('about-me');
+        profileDiv.classList.add('profile');
+        profileImg.classList.add('profile-pic');
+        profileImg.setAttribute('src', 'img/user.png');
+
+        name.textContent = 'Eduardo Vera';
+        title.textContent = 'Frontend Developer';
+        titleDiv.classList.add('title');
+
+        descDiv.classList.add('desc');
+        paragraph.classList.add('desc-p');
+        paragraph.textContent = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi voluptatibus natus quaerat temporibus numquam totam dolorum explicabo blanditiis doloribus? Sunt eum iste deleniti quasi corrupti inventore aut, adipisci vero repellendus.';
+
+        profileDiv.appendChild(profileImg);
+        titleDiv.appendChild(name);
+        titleDiv.appendChild(title);
+        descDiv.appendChild(paragraph);
+        
+        aboutDiv.appendChild(profileDiv);
+        aboutDiv.appendChild(titleDiv);
+        aboutDiv.appendChild(descDiv);
+
+        mainContainer.appendChild(aboutDiv);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', UI_2.displayNavBar());
+document.addEventListener('DOMContentLoaded', UI_2.displayAboutMe());
+
+

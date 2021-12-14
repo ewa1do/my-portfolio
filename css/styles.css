@@ -7,12 +7,13 @@
 }
 
 :root {
+    --primary-color: #1C2444;
+    --secondary-color: #222E5E;
+    --complement: #EAEAEA;
+    --complement-2: #F1F1F1;
+    --complement-3: #DDDBDB;
+    --alternative: #1DC54C;
     --main-color-black: #334043;
-    --complement: #DBE2E9;
-    --primary-color: #865549;
-    --background: #7FA3B2;
-    --primary-light-1: #9A7A61;
-    --primary-light-2: #BA958D;
 }
 
 html {
@@ -21,245 +22,103 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    background-image: linear-gradient(to right, rgba(127, 163, 178, 1), rgba(127, 163, 178, .6));
-    max-height: 85vh;
-}
-
-.main-container {
-    width: 55%;
-    background-color: var(--complement);
-    margin-left: 26.5%;
-    margin-top: 10rem;
-    border: 1px solid var(--complement);
-    border-radius: 1rem;
-    min-height: 70vh;
-    max-height: 70vh;
-    box-shadow: 5px 5px 30px var(--main-color-black), -5px -5px 30px var(--complement);
+    background-color: var(--primary-color);
 }
 
 .menu {
+    background-color: #222E5E;
+    box-shadow: 0 4px 8px rgba(0,0,0,.25);
+}
+
+.about-me {
     display: flex;
-    justify-content: flex-end;
-    list-style: none;
-    margin-top: 1rem;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
 }
 
-.menu li {
-    padding: 0 1rem;
+.about-me div {
+    padding: .5rem 0;
 }
 
-.menu li a:link,
-.menu li a:visited {
-    color: var(--main-color-black);
-    text-decoration: none;
-    font-weight: 500;
-    padding-bottom: .2rem;
-    transition: all .3s ease-in; 
-}
-
-.menu li a:hover,
-.menu li a:active {
-    border-bottom: 1px solid var(--main-color-black);    
-}
-
-/*
-
-.personal-info {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    row-gap: 1.5rem;
-    margin-top: 4rem;
-}
-
-
-.personal-info img {
-    justify-self: center;
-    align-self: center;
-    border-radius: 50%;
+.profile-pic {
+    margin-top: 3.5rem;
     width: 10rem;
+    height: 8rem;
+    border-radius: 50%;
 }
 
 .title {
-    justify-self: center;
+    margin-top: 2.8rem;
+}
+
+.title h1, .title h3 {
+    color: var(--complement-2);
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: .5rem 0;
 }
 
 .title h1 {
-    margin: .5rem 0;
-    font-size: 3.5rem;
-    font-weight: 300;
-    border-bottom: 1px solid var(--main-color-black);
+    font-size: 2.2rem;
+    text-decoration: none;
+    position: relative;
+}
+
+
+.title h1::after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    top: 24px;
+    bottom: -4px;
+    left: -13px;
+    right: 0;
+    width: 116%;
+    background: var(--complement);
 }
 
 .title h3 {
-    font-size: 1.7rem;
-    font-weight: 300;
+    font-size: 1.3rem;
 }
 
 .desc {
-    justify-self: center;
-    width: 70%;
-} */
-
-/* skills section */
-
-.skills {
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
-.skills-title {
-    font-size: 4rem;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 300;
-    padding-bottom: 1rem;
-    position: relative;
+.desc-p {
+    color: var(--complement-3);
+    width: 75%;
 }
 
-.skills-title::after {
-    position: absolute;
-    content: '';
-    bottom: 11px;
-    height: 2px;
-    margin: 0 auto;
-	left: 0;
-    right: 0;
-	width: 35%;
-	background: rgba(0,0,0,.4); */
+
+@media only screen and (max-width: 500px) {
+    .menu li > a {
+        display: none;
+    }
 }
 
-.skill {
-    padding: .5rem;
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    padding: .8rem;
-    font-size: 1.8rem;
-    border: 1px solid rgba(0,0,0,.4);
-    margin-bottom: 1rem;
+@media only screen and (max-width: 1020px) {
+    .menu {
+        display: block;
+    }
 }
 
-.skill-html {
-    background: linear-gradient(to right, red, orangered);
-}
-
-.skill-css {
-    background: linear-gradient(to right, blue, lightblue);
-}
-
-.skill-javascript {
-    background: linear-gradient(to right, yellow, lightyellow);
-}
-
-.skill-git {
-    background: linear-gradient(to right, orange, coral);
-}
-
-/* projects section */
-
-.projects {
-    /* grid-column: 2 / -1; */
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    /* align-content: center; */
-    /* justify-items: center; */
-    width: 50%;
-    margin: 0 auto;
-    gap: 2rem;
-    position: relative;
-}
-
-.project {
-    border: 1px solid var(--main-color-black);
-    padding: 2rem;
-    /* filter: brightness(.5); */
-}
-
-.project img {
-    /* min-width: 100%;
-    min-height: 100%; */
-    /* max-height: 100%; */
-    z-index: 1;
-    max-width: 10rem;
-}
-
-.project h3 {
-    z-index: 10;
-}
-
-/* Contacts section */
-
-.contacts {
-    width: 40%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    margin: 0 auto;
-}
-
-.cont {
-    padding: 2rem;
-    margin: 2rem;
-}
-
-.cont i {
-    font-size: 5rem;
-}
-
-.cont-linkedin i {
-    color: royalblue;
-}
-
-.cont-instagram i {
-    color:  purple;
-}
-
-.cont-twitter {
-    color: skyblue;
-}
-
-.contact-info {
-    display: flex;
-    list-style: none;
-    justify-content: space-around;
-}
-
-/* About Section */
 
 
-.about-div {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    row-gap: 1.5rem;
-    /* margin-top: 4rem; */
-}
+/* Extra small devices (phones, 600px and down) /
+@media only screen and (max-width: 600px) {...}
 
-.about-div img {
-    justify-self: center;
-    align-self: center;
-    border-radius: 50%;
-    width: 10rem;
-}
+/ Small devices (portrait tablets and large phones, 600px and up) /
+@media only screen and (min-width: 600px) {...}
 
-.title-div {
-    justify-self: center;
-}
+/ Medium devices (landscape tablets, 768px and up) /
+@media only screen and (min-width: 768px) {...}
 
-.title-div h1 {
-    margin: .5rem 0;
-    font-size: 3.5rem;
-    font-weight: 300;
-    border-bottom: 1px solid var(--main-color-black);
-}
+/ Large devices (laptops/desktops, 992px and up) /
+@media only screen and (min-width: 992px) {...}
 
-.title-div h3 {
-    font-size: 1.7rem;
-    font-weight: 300;
-}
-
-.desc-div {
-    justify-self: center;
-    width: 70%;
-}
+/ Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {...} */

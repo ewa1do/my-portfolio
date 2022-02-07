@@ -296,9 +296,26 @@ class UI_2 {
 
         mainContainer.appendChild(aboutDiv);
     }
+
+    static displayProjects () {
+        const projectsDiv = document.createElement('div');
+        projectsDiv.classList.add('projects');
+
+        const projectArr = [];
+
+        projectsDB.forEach(pro => {
+            projectArr.push(pro);
+        });
+
+        console.log(projectArr);
+
+        projectArr.forEach(pro => {
+
+        });
+    }
 }
 
-document.addEventListener('DOMContentLoaded', UI_2.displayNavBar());
-document.addEventListener('DOMContentLoaded', UI_2.displayAboutMe());
-
+// document.addEventListener('DOMContentLoaded', UI_2.displayNavBar());
+// document.addEventListener('DOMContentLoaded', UI_2.displayAboutMe());
+// document.addEventListener('DOMContentLoaded', UI_2.displayProjects());
 

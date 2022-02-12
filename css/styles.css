@@ -23,6 +23,7 @@
 
 :root {
     --primary-color: #1C2444;
+    --primary-color-rgb: rgb(28, 36, 68);
     --secondary-color: #222E5E;
     --complement: #EAEAEA;
     --complement-2: #F1F1F1;
@@ -126,6 +127,43 @@ section {
 }
 
 /* =========================================== */
+/*                HEADINGS                     */
+/* =========================================== */
+
+.project-title, .skills-title, .contact-section h2 {
+    font-size: 3rem;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.project-title::after,
+.skills-title::after,
+.contact-section h2::after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    top: 102%;
+    left: 30%;
+    bottom: -4px;
+    right: 0;
+    width: 40%;
+    background-color: var(--complement);
+}
+
+.skills-title::after {
+    width: 30%;
+    left: 35%;
+}
+
+.contact-section h2::after {
+    top: 75%;
+    left: 34%;
+    width: 32%;
+}
+
+/* =========================================== */
 /*                 PROJECTS                    */
 /* =========================================== */
 
@@ -134,13 +172,6 @@ section {
     justify-items: center;
     justify-content: center;
     grid-template-columns: repeat(2, 50rem);
-}
-
-.project-title, .skills-title, .contact-section h2 {
-    font-size: 3rem;
-    font-weight: 300;
-    text-align: center;
-    text-transform: uppercase;
 }
 
 .project {
@@ -199,9 +230,25 @@ section {
     vertical-align: middle;
 }
 
+.p-img {
+    position: relative;
+}
+
 .project img {
     width: 25rem;
     height: 12rem;
+    transition: .5s ease all;
+}
+
+.project img:hover {
+    filter: brightness(30%);
+}
+
+.p-img p {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    display: none;
 }
 
 
@@ -210,14 +257,15 @@ section {
 /* =========================================== */
 
 .skills-section {
-    padding-top: -3rem;
+    padding-top: -5rem;
+    padding-bottom: 8rem;
 }
 
 .skills {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-top: 3rem;
+    padding-top: 5rem;
 }
 
 .skill .outside {
@@ -247,9 +295,21 @@ section {
     left: 1%;
 }
 
+.skill-text {
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    top: -8px;
+    left: -1.9rem;
+}
+
 /* =========================================== */
 /*                  CONTACT                    */
 /* =========================================== */
+
+.contact-section h2 {
+    padding: 2rem 0;
+}
 
 .contact ul {
     display: flex;
@@ -263,95 +323,44 @@ section {
     font-size: 1.2rem;
 }
 
+.contact ul li i {
+    padding: 0 1rem;
+    font-size: 1.7rem;
+}
+
+.contact ul li span {
+    font-size: 1.4rem;
+}
 
 /* =========================================== */
 /*                   FOOTER                  */
 /* =========================================== */
 
+footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--secondary-color);
+    box-shadow: 2px 2px 2px var(--main-color-black);
+    background-color: rgba(28, 36, 68, .5);
+}
+
 footer p {
     padding-top: 2rem;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
-
-/* .menu {
-    background-color: #222E5E;
-    box-shadow: 0 4px 8px rgba(0,0,0,.25);
-}
-
-.about-me {
+footer ul {
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-items: center;
-}
-
-.about-me div {
-    padding: .5rem 0;
-}
-
-.profile-pic {
-    margin-top: 3.5rem;
-    width: 10rem;
-    height: 8rem;
-    border-radius: 50%;
-}
-
-.title {
-    margin-top: 2.8rem;
-}
-
-.title h1, .title h3 {
-    color: var(--complement-2);
-    font-weight: 300;
-    text-transform: uppercase;
-    margin: .5rem 0;
-}
-
-.title h1 {
-    font-size: 2.2rem;
-    text-decoration: none;
-    position: relative;
-}
-
-
-.title h1::after {
-    position: absolute;
-    content: '';
-    height: 2px;
-    top: 24px;
-    bottom: -4px;
-    left: -13px;
-    right: 0;
-    width: 116%;
-    background: var(--complement);
-}
-
-.title h3 {
-    font-size: 1.3rem;
-}
-
-.desc {
-    display: flex;
-    justify-content: center;
+    margin-left: 19.5%;
     margin-top: 2rem;
 }
 
-.desc-p {
-    color: var(--complement-3);
-    width: 75%;
+footer ul li {
+    padding: 0 1rem;
+    list-style: none;
+    font-size: 2rem;
 }
 
-
-@media only screen and (max-width: 500px) {
-    .menu li > a {
-        display: none;
-    }
+footer > ul > li > a {
+    color: var(--complement);
 }
-
-@media only screen and (max-width: 1020px) {
-    .menu {
-        display: block;
-    }
-} */
-

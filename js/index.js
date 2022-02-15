@@ -41,9 +41,15 @@ class UI {
     static toggleProjectDescription (e) {
         if (e.target.closest('.img')) {
             const desc = e.target.nextElementSibling;
+            desc.classList.add('slide-in');
             desc.classList.remove('hide');
+            // desc.classList.remove('slide-out');
         } else {
-            [...projectDesc].map(p => p.classList.add('hide'));
+            [...projectDesc].map(p => {
+                // p.classList.add('slide-out');
+                p.classList.remove('slide-in');
+                p.classList.add('hide');
+            });
         }
     }
 

@@ -8,6 +8,12 @@ const infoContainer = document.querySelector('.personal-info');
 const skills = document.querySelector('.skills');
 const projectDesc = document.querySelectorAll('.test');
 const projects = document.querySelector('.projects');
+const contact = document.querySelector('#contact');
+
+const switchDiv = document.querySelector('.switch');
+const circle = document.querySelector('.circle');
+
+console.log(circle);
 
 // creating the text for the skills
 Array.from(skills.children).forEach(div => {
@@ -37,7 +43,16 @@ class UI {
         }
     }
 
+    static switchButtonAnimation () {
+        circle.addEventListener('click', function () {
+            circle.classList.toggle('animation-switch');
+        });
+    }
+
+
 }
 
 
+
+document.addEventListener('DOMContentLoaded', UI.switchButtonAnimation);
 projects.addEventListener('mouseover', e => UI.toggleProjectDescription(e));

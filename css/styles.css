@@ -75,11 +75,19 @@ section {
 
 
 .switch {
-    padding: 1rem 2rem; 
+    padding: 1rem 2.5rem; 
     border: 1px solid var(--alternative);
     border-radius: 20px;
     position: relative;
     background-color: var(--alternative);
+}
+
+.lang {
+    position: absolute;
+    top: 15%;
+    left: 55%;
+    font-size: 1.2rem;
+    transition: all .6s ease;
 }
 
 .circle {
@@ -95,9 +103,12 @@ section {
 }
 
 .animation-switch {
-    transform: translateX(100%);
+    transform: translateX(140%);
 }
 
+.text-move {
+    transform: translateX(-130%);
+}
 
 /* =========================================== */
 /*                 ABOUT ME                    */

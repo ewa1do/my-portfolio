@@ -16,17 +16,19 @@
 <body>
     <nav class="nav">
         <ul class="menu">
-            <li><a href="#">about me</a></li>
-            <li><a href="#">projects</a></li>
-            <li><a href="#">my skills</a></li>
-            <li><a href="#">contact me</a></li>
+            <li><a href="#personal">about me</a></li>
+            <li><a href="#projects">projects</a></li>
+            <li><a href="#skills">my skills</a></li>
+            <li><a href="#contact">contact me</a></li>
+            <li>
+                <div class="switch">
+                    <div class="circle"></div>
+                </div>
+            </li>
         </ul>
-        <div class="switch">
-
-        </div>
     </nav>
     <main class="main-container">
-        <section class="personal-section">
+        <section class="personal-section" id="personal">
             <div class="personal-info">
                 <div class="profile">
                     <img src="img/profile.jpg" alt="" class="profile-pic">
@@ -39,13 +41,14 @@
     
                 <div class="about-me">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quaerat ducimus asperiores perferendis sit dolorum earum voluptate odio exercitationem, porro voluptates repudiandae omnis inventore sed saepe iste quam enim suscipit.
+                        Hi, nice to meet you! My name is Eduardo Vera. I'm a self taught Frontend Developer based in Maracaibo Venezuela.
+                        I'm currently learning every day to become the best developer that I can be, please be free to review my work so far and if you're interested don't hesitate to contact me :)
                     </p>
                 </div>
             </div>
         </section>
 
-        <section class="projects-section">
+        <section class="projects-section" id="projects">
             <h2 class="project-title">Check out what i've made</h2>
 
             <div class="projects">
@@ -112,7 +115,7 @@
             </div>
         </section>
 
-        <section class="skills-section">
+        <section class="skills-section" id="skills">
             <h2 class="skills-title">I'm proficient in...</h2>
             <div class="skills">
                 <div class="skill">
@@ -157,7 +160,7 @@
             </div>
         </section>
 
-        <section class="contact-section">
+        <section class="contact-section" id="contact">
             <h2>You can find me On...</h2>
             <div class="contact">
                 <ul>

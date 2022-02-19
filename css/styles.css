@@ -46,6 +46,34 @@ body {
 /* =========================================== */
 /*                   NAV MENU                  */
 /* =========================================== */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    position: fixed;
+}
+
+.hamburger {
+    display: block;
+    padding: 5px 8rem;
+    cursor: pointer;
+    z-index: 20;
+    position: fixed;
+}
+
+.bar1, .bar2, .bar3 {
+    display: block;
+    width: 3rem;
+    height: 1px;
+    margin: 7px auto;
+    background-color: var(--complement-3);
+    transition: 0.4s; 
+}
+
+.bar2 {
+    margin-left: -7px;
+}
+
 .menu {
     background-color: var(--secondary-color);
     box-shadow: 0 4px 8px rgba(0,0,0,.25);
@@ -60,6 +88,11 @@ body {
 .menu li {
     padding: 1rem 5rem;
     list-style: none;
+    transition: .3s ease all;
+}
+
+.menu li:hover:not(:last-child) {
+    background-color: var(--primary-color);
 }
 
 .menu li a {
@@ -72,7 +105,6 @@ body {
 section {
     padding: 4rem 0;
 }
-
 
 .switch {
     padding: 1rem 2.5rem; 
@@ -113,6 +145,10 @@ section {
 /* =========================================== */
 /*                 ABOUT ME                    */
 /* =========================================== */
+
+main {
+    z-index: 1;
+}
 
 .personal-info {
     display: flex;

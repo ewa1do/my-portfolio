@@ -53,6 +53,9 @@ const switchDiv = document.querySelector('.switch');
 const circle = document.querySelector('.circle');
 const langSpan = document.querySelector('.lang');
 
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
+const body = document.querySelector('body');
 
 // creating the text for the skills
 Array.from(skills.children).forEach(div => {
@@ -188,9 +191,63 @@ class UI {
         });
     }
     
+    static createModalWindow () {
+        document.querySelector('main').classList.add('blur');
+
+        const menu = document.querySelector('.menu');
+        const modal = document.querySelector('.modal');
+        
+        modal.append(menu);
+        [...modal.children].forEach(_menu => {
+            _menu.style.flexDirection = 'column';
+            [..._menu.children].forEach(li => li.style.display = 'block');
+        })
+        
+        body.classList.add('modal__active');
+        body.prepend(modal);
+    }
+
+    static destroyModalWindow () {
+        document.querySelector('main').classList.remove('blur');
+        body.classList.remove('modal__active');
+
+        const modal = document.querySelector('.modal');
+
+        Array.from(modal.children).forEach(_menu => {
+            Array.from(_menu.children).forEach(li => li.style.display = 'none');
+        });
+    }
+
+    static logoAnimation () {
+        const bars = [];
+
+        [...hamburger.children].map(bar => bars.push(bar));
+
+        bars[0].classList.toggle('hide');
+        bars[1].classList.toggle('moveBar2');
+        bars[2].classList.toggle('moveBar3');
+    }
+
+    static responsiveMenu () {
+        if (body.scrollWidth < 768) {
+            UI.logoAnimation();
+            if (!body.classList.contains('modal__active')) {
+                UI.createModalWindow();
+            } else {
+                UI.destroyModalWindow();
+            }
+        }
+    }
+    
 }
-
-
 
 document.addEventListener('DOMContentLoaded', UI.switchButton);
 projects.addEventListener('mouseover', e => UI.toggleProjectDescription(e));
+hamburger.addEventListener('click', UI.responsiveMenu);
+
+menu.addEventListener('click', function (e) {
+    if (body.scrollWidth < 768) {
+        UI.destroyModalWindow();
+        UI.logoAnimation();
+    }
+});

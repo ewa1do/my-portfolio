@@ -41,6 +41,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--primary-color);
     color: var(--complement);
+    z-index: 5;
+    overflow-x: hidden;
 }
 
 /* =========================================== */
@@ -49,6 +51,8 @@ body {
 .nav {
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
     z-index: 10;
     position: fixed;
 }
@@ -91,7 +95,7 @@ body {
     transition: .3s ease all;
 }
 
-.menu li:hover:not(:last-child) {
+.menu li:hover {
     background-color: var(--primary-color);
 }
 
@@ -112,6 +116,8 @@ section {
     border-radius: 20px;
     position: relative;
     background-color: var(--alternative);
+    margin-left: 92vw;
+    margin-top: 8px;
 }
 
 .lang {
@@ -142,12 +148,41 @@ section {
     transform: translateX(-130%);
 }
 
+.modal {
+    width: 100vw;
+    background-image: radial-gradient(to right, var(--primary-color), var(--secondary-color));
+    position: absolute;
+    height: 100vh;
+    /* top: 10%; */
+    /* left: 25%; */
+    z-index: 10;
+}
+
+.modal li:first-child {
+    margin-top: 15rem;
+}
+
+.modal li {
+    margin-top: 5rem;
+    cursor: pointer;
+    z-index: 50;
+    margin-left: 50%;
+    list-style: none;
+}
+
+.modal li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    
+}
+
 /* =========================================== */
 /*                 ABOUT ME                    */
 /* =========================================== */
 
 main {
     z-index: 1;
+    transition: all .3s ease-out;
 }
 
 .personal-info {
@@ -175,11 +210,12 @@ main {
     position: absolute;
     content: '';
     height: 1px;
-    top: 58%;
+    top: 60%;
     bottom: -4px;
     left: 33%;
     right: 0;
     width: 34%;
+    width: calc(100% - 66%);
     background: var(--complement);
 }
 
@@ -461,4 +497,17 @@ footer > ul > li > a {
 .slide-in {
     opacity: 1;
     transform: translateY(60%);
+}
+
+.blur {
+    filter: blur(6px);
+}
+
+.moveBar2 {
+    margin-left: 0;
+    transform: rotate(47deg) translateY(4px) translateX(-1px) scale(0.6);
+}
+
+.moveBar3 {
+    transform: rotate(-45deg) translateY(-8px) translateX(1px) scale(0.6);
 }

@@ -8,14 +8,14 @@ const langs = {
     
     about: {
         EN: `Hi, nice to meet you! My name is Eduardo Vera. I'm a self taught Frontend Developer based in Maracaibo Venezuela.
-            I'm currently learning every day to become the best developer that I can be, please be free to review my work so far and if you're interested don't hesitate to contact me :)`,
+            I'm currently learning every day to become the best developer that I can be, please be free to review my work so far and if you're interested don't hesitate to contact me 🤓.`,
         ES: `Hola, ¡gusto en conocerte!. Mi nombre es Eduardo Vera. Soy un Desarrollador Frontend autodidacta establecido en Maracaibo Venezuela.
-            Actualmente estoy aprendiendo cada día para convertirme en el mejor desarrollador que pueda ser, siéntete libre de ver mi trabajo y si estás interesado no dudes en contactarme :)`,
+            Actualmente estoy aprendiendo cada día para convertirme en el mejor desarrollador que pueda ser, siéntete libre de ver mi trabajo y si estás interesado no dudes en contactarme 🤓.`,
     },
 
     headings: {
         EN: ['FrontEnd Developer', `Check out what i've made`, `I'm proficient in...`, `You can find me On...`],
-        ES: ['Desarrollador FrontEnd', 'Mira lo que he hecho', 'Soy competente en...', 'Puedes encontarme acá'],
+        ES: ['Desarrollador FrontEnd', 'Mira lo que sé hacer', 'Soy competente en...', 'Puedes contactarme acá'],
     },
 
     projects: {
@@ -223,8 +223,8 @@ class UI {
 
         [...hamburger.children].map(bar => bars.push(bar));
 
-        bars[0].classList.toggle('hide');
-        bars[1].classList.toggle('moveBar2');
+        bars[0].classList.toggle('moveBar2');
+        bars[1].classList.toggle('hide');
         bars[2].classList.toggle('moveBar3');
     }
 

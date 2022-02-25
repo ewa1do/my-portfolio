@@ -75,7 +75,8 @@ body {
 }
 
 .bar2 {
-    margin-left: -7px;
+    margin-left: 0px;
+    width: 1.8rem;
 }
 
 .menu {
@@ -423,6 +424,11 @@ main {
     left: -1.9rem;
 }
 
+div.skill:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) {
+    lefT: -2.5rem;
+}
+
+
 /* =========================================== */
 /*                  CONTACT                    */
 /* =========================================== */
@@ -504,10 +510,9 @@ footer > ul > li > a {
 }
 
 .moveBar2 {
-    margin-left: 0;
-    transform: rotate(47deg) translateY(4px) translateX(-1px) scale(0.6);
+    transform: rotate(44deg) translateY(8px) translateX(3px) scale(0.6);
 }
 
 .moveBar3 {
-    transform: rotate(-45deg) translateY(-8px) translateX(1px) scale(0.6);
+    transform: rotate(-36deg) translateY(-9px) translateX(2px) scale(0.6);
 }

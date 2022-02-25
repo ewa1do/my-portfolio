@@ -29,7 +29,7 @@
     .projects { grid-template-columns: repeat(1, 1fr); }
     .project:nth-child(2) { margin-top: -10rem; } 
     .project-title::after, .skills-title::after, .contact-section h2::after { left: 0; width: 100%; }
-    .project-title, .skills-title, .contact-section h2 { font-size: 2.4rem; }
+    .project-title, .skills-title, .contact-section h2 { font-size: 2.2rem; }
     .skills { flex-direction: column; align-items: center; }
     .skill { padding: 2rem 0; }
     .contact ul { flex-direction: column; align-items: center; }

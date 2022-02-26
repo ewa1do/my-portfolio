@@ -23,6 +23,7 @@
     body { overflow-x: hidden; }
     section { padding: 2rem 0; }
     .switch { margin-left: 80vw; }
+    .lang { outline: none; }
     .title h1::after { display: none; }
     .about-me { width: 80%; }
     .about-me p { font-size: 1.35rem; }
@@ -68,6 +69,7 @@
     .about-me { width: 66%; text-align: center; }
     .skills { grid-template-columns: repeat(4, 1fr); width: 90%; }
     .menu li:hover { background-color: var(--primary-color); }
+    .projects { width: 60%; margin: 0 auto; }
 }
 
 @media only screen and (min-width: 1020px) {

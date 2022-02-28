@@ -74,4 +74,12 @@
 
 @media only screen and (min-width: 1020px) {
     .about-me p { font-size: 1.5rem; }
+    .projects { width: 65%; }
+    .project { grid-template-columns: repeat(4, 1fr); }
+    .project .p-name, .project .p-img { grid-column: 1 / -1; }
+    .p-name h3 { margin-top: 11rem; padding: .8rem 0; }
+    .project img { width: 30rem; height: 15rem; }
+    .project .p-code { grid-column: 1 / 3; }
+    .project .p-demo { grid-column: 3 / -1; }
+    .p-code, .p-demo { margin-bottom: 12.5rem; }
 }

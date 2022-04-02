@@ -39,7 +39,7 @@ const langs = {
     }
 }
 
-const skillsArr = ['<html/>', '.css{}', 'js();', 'git'];
+const skillsArr = ['logo-html5', 'logo-css3', 'logo-javascript', 'logo-github'];
 const skillDiv = [];
 
 const mainContainer = document.querySelector('.main-container');
@@ -57,22 +57,23 @@ const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
 const body = document.querySelector('body');
 
-// creating the text for the skills
-Array.from(skills.children).forEach(div => {
-    [...div.children].forEach(div => {
-        [...div.children].forEach(div => {
-            [...div.children].forEach((div, i) => {
-                skillDiv.push(div);
-            })
-        }) 
-    })
-});
 
-skillDiv.forEach((div, i) => {
-    const span = document.createElement('span');
-    span.textContent = skillsArr[i];
-    span.classList.add('skill-text');
-    div.append(span);
+skillsArr.forEach((_, i) => {
+    const output = `
+    <div class="skill">
+        <div class="outside">
+            <div class="inside">
+                <div class="bg-skill">
+                    <span class"skill-text">
+                    <ion-icon class="icon ${skillsArr[i]}" name="${skillsArr[i]}"></ion-icon>
+                    </span>
+                </div>
+            </div>
+        <div>
+    </div>
+    `;
+
+    skills.insertAdjacentHTML('beforeend', output);
 });
 
 const replaceClass = function (el, classRemoved, classAdded) {

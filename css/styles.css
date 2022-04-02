@@ -405,11 +405,11 @@ main {
     top: 2%;
     left: 2%;
     width: 96%;
-    height: 95%;
+    height: 96%;
 }
 
 .skill .bg-skill {
-    border: 6rem solid var(--secondary-color);
+    /* border: 6rem solid var(--secondary-color); */
     border-radius: 50%;
     position: absolute;
     top: 0;
@@ -424,9 +424,12 @@ main {
     left: -1.9rem;
 }
 
-div.skill:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) {
-    lefT: -2.5rem;
+.icon {
+    font-size: 8rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
 }
+
 
 
 /* =========================================== */
